@@ -14,6 +14,7 @@
 		A268191C1E0FA70D0051FF5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A268191A1E0FA70D0051FF5F /* LaunchScreen.storyboard */; };
 		A26819271E0FA70E0051FF5F /* ODReachabilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26819261E0FA70E0051FF5F /* ODReachabilityTests.swift */; };
 		A26819321E0FA70E0051FF5F /* ODReachabilityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26819311E0FA70E0051FF5F /* ODReachabilityUITests.swift */; };
+		A26819401E0FA7600051FF5F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A268193F1E0FA7600051FF5F /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		A268192D1E0FA70E0051FF5F /* ODReachabilityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ODReachabilityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A26819311E0FA70E0051FF5F /* ODReachabilityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODReachabilityUITests.swift; sourceTree = "<group>"; };
 		A26819331E0FA70E0051FF5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A268193F1E0FA7600051FF5F /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		A26819101E0FA70D0051FF5F /* ODReachability */ = {
 			isa = PBXGroup;
 			children = (
+				A268193F1E0FA7600051FF5F /* Reachability.swift */,
 				A26819111E0FA70D0051FF5F /* AppDelegate.swift */,
 				A26819131E0FA70D0051FF5F /* ViewController.swift */,
 				A26819151E0FA70D0051FF5F /* Main.storyboard */,
@@ -264,6 +267,7 @@
 			files = (
 				A26819141E0FA70D0051FF5F /* ViewController.swift in Sources */,
 				A26819121E0FA70D0051FF5F /* AppDelegate.swift in Sources */,
+				A26819401E0FA7600051FF5F /* Reachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
