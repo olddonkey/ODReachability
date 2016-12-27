@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A229B7F21E1055AA002BAB36 /* ODReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A229B7F11E1055AA002BAB36 /* ODReachability.swift */; };
 		A26819121E0FA70D0051FF5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26819111E0FA70D0051FF5F /* AppDelegate.swift */; };
 		A26819141E0FA70D0051FF5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26819131E0FA70D0051FF5F /* ViewController.swift */; };
 		A26819171E0FA70D0051FF5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A26819151E0FA70D0051FF5F /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A229B7F11E1055AA002BAB36 /* ODReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODReachability.swift; sourceTree = "<group>"; };
 		A268190E1E0FA70D0051FF5F /* ODReachability.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ODReachability.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A26819111E0FA70D0051FF5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A26819131E0FA70D0051FF5F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		A26819101E0FA70D0051FF5F /* ODReachability */ = {
 			isa = PBXGroup;
 			children = (
+				A229B7F11E1055AA002BAB36 /* ODReachability.swift */,
 				A268193F1E0FA7600051FF5F /* Reachability.swift */,
 				A26819111E0FA70D0051FF5F /* AppDelegate.swift */,
 				A26819131E0FA70D0051FF5F /* ViewController.swift */,
@@ -268,6 +271,7 @@
 				A26819141E0FA70D0051FF5F /* ViewController.swift in Sources */,
 				A26819121E0FA70D0051FF5F /* AppDelegate.swift in Sources */,
 				A26819401E0FA7600051FF5F /* Reachability.swift in Sources */,
+				A229B7F21E1055AA002BAB36 /* ODReachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +522,7 @@
 				A26819381E0FA70E0051FF5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A26819391E0FA70E0051FF5F /* Build configuration list for PBXNativeTarget "ODReachabilityTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +531,7 @@
 				A268193B1E0FA70E0051FF5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A268193C1E0FA70E0051FF5F /* Build configuration list for PBXNativeTarget "ODReachabilityUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +540,7 @@
 				A268193E1E0FA70E0051FF5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
