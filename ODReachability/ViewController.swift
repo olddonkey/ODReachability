@@ -8,14 +8,28 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, ODReachabilityProtocol {
+    
+    var delegate: ODReachabilityProtocol?
+    var reachability: ODReachability?
+    var oldreachability: Reachability?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let reachability = ODReachability.init(hostName: "www.google.com")
+        ODReachability.StartODReachabilityWithHostName(hostName: "www.google.com", delegate: self)
+//        reachability = Reachability(hostname: "google.com")
+//        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(_:)), name: ReachabilityChangedNotification, object: reachability)
+//        print((reachability?.currentReachabilityString)! as String)
+//        
+//        do {
+//            try reachability?.startNotifier()
+//        } catch {
+//            print("Can't start Notifier")
+//            return
+//        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
