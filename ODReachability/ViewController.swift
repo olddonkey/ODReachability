@@ -10,9 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, ODReachabilityProtocol {
     
-    var delegate: ODReachabilityProtocol?
     var reachability: ODReachability?
-    var oldreachability: Reachability?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +31,10 @@ class ViewController: UIViewController, ODReachabilityProtocol {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func WiFiToNoConnection() {
+        print("No Network")
     }
 
 
