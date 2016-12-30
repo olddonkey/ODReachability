@@ -40,30 +40,44 @@ class ODReachability: NSObject{
 
     fileprivate var reachability: Reachability?
     fileprivate var oldNetWorkStatus: Reachability.NetworkStatus?
+    fileprivate var notifierRunning: Bool?
     
-    class func StartODReachabilityWithDefaultHostName(delegate: ODReachabilityProtocol) -> ODReachability?{
-        return ODReachability.StartODReachabilityWithHostName(hostName: nil, delegate: delegate)
+    class func SetupODReachabilityWithDefaultHostName(delegate: ODReachabilityProtocol) -> ODReachability?{
+        
+        return ODReachability.SetupODReachabilityWithHostName(hostName: nil, delegate: delegate)
     }
     
 
-    class func StartODReachabilityWithHostName(hostName: String?, delegate: ODReachabilityProtocol) -> ODReachability?{
+    class func SetupODReachabilityWithHostName(hostName: String?, delegate: ODReachabilityProtocol) -> ODReachability?{
         
-        let ODReachabilitySingleton = ODReachability()
-        ODReachabilitySingleton.delegate = delegate
-        ODReachabilitySingleton.reachability = hostName == nil ? Reachability() : Reachability(hostname: hostName!)
+        let ODReachabilityInstance = ODReachability()
+        ODReachabilityInstance.delegate = delegate
+        ODReachabilityInstance.reachability = hostName == nil ? Reachability() : Reachability(hostname: hostName!)
+        return ODReachabilityInstance
+        
+    }
+    
+    func StartODReachability(){
+        
+        if notifierRunning == true {return}
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(_:)), name: ReachabilityChangedNotification, object: reachability)
         do {
-            try ODReachabilitySingleton.reachability?.startNotifier()
+            try reachability?.startNotifier()
+            notifierRunning = true
         } catch {
-            print("Can't start Notifier")
+            NSLog("Can't start notifier")
+            notifierRunning = false
         }
-        NotificationCenter.default.addObserver(ODReachabilitySingleton, selector: #selector(ODReachabilitySingleton.reachabilityChanged(_:)), name: ReachabilityChangedNotification, object: ODReachabilitySingleton.reachability)
-        print((ODReachabilitySingleton.reachability?.currentReachabilityString)! as String)
-        return ODReachabilitySingleton
+        
     }
     
     func StopODReachability(){
+        
+        if notifierRunning == false {return}
         reachability?.stopNotifier()
-        NotificationCenter.default.removeObserver(self, name: ReachabilityChangedNotification, object: nil)
+        notifierRunning = false
+        NotificationCenter.default.removeObserver(self)
+        
     }
     
     
@@ -100,8 +114,14 @@ class ODReachability: NSObject{
         }else {
             delegate?.ODReachabilitySetup()
         }
-
         
         oldNetWorkStatus = reachability.currentReachabilityStatus
+    }
+    
+    deinit {
+        delegate = nil
+        notifierRunning = false
+        oldNetWorkStatus = nil
+        reachability = nil
     }
 }

@@ -15,17 +15,8 @@ class ViewController: UIViewController, ODReachabilityProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        ODReachability.StartODReachabilityWithHostName(hostName: "www.google.com", delegate: self)
-//        reachability = Reachability(hostname: "google.com")
-//        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(_:)), name: ReachabilityChangedNotification, object: reachability)
-//        print((reachability?.currentReachabilityString)! as String)
-//        
-//        do {
-//            try reachability?.startNotifier()
-//        } catch {
-//            print("Can't start Notifier")
-//            return
-//        }
+        reachability = ODReachability.SetupODReachabilityWithHostName(hostName: "www.google.com", delegate: self)
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,7 +27,17 @@ class ViewController: UIViewController, ODReachabilityProtocol {
     func WiFiToNoConnection() {
         print("No Network")
     }
+    
+    func WiFiToWWAN() {
+        print("WiFi change to WWAN")
+    }
 
+    @IBAction func startODReachability(_ sender: Any) {
+        reachability?.StartODReachability()
+    }
 
+    @IBAction func StopODReachability(_ sender: Any) {
+        reachability?.StopODReachability()
+    }
 }
 
